@@ -44,7 +44,7 @@ ruby_block "set-SimpleDB-Properties" do
     # We read the credentials from the same place that Priam will.
     creds_file  = "/etc/awscredential.properties"
     keys        = Hash[File.read(creds_file).split.map{|e| e.split("=") }]
-    sdb         = AWS::SimpleDB.new(
+    sdb         = Aws::SimpleDB.new(
       :access_key_id      => keys["AWSACCESSID"],
       :secret_access_key  => keys["AWSKEY"]
     )
